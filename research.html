@@ -13,17 +13,6 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <style>
-      button.accordion2 {
-      font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      cursor: pointer;
-      padding: 0px;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 100%;
-      transition: 0.4s;
-      background-color: #f8f8f8;
-      }
       button.accordion {
       font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 14px;
@@ -34,6 +23,7 @@
       text-align: left;
       outline: none;
       font-size: 100%;
+      color:#777;
       transition: 0.4s;
       background-color: #f8f8f8;
       }
@@ -42,20 +32,11 @@
       }
       button.accordion:after {
       content: '[+]';
-      font-size: 90%;
+      font-size: 100%;
       color:#777;
       float: left;
       margin-left: 1px;
       }
-
-      button.accordion2:after {
-      content: '[#]';
-      font-size: 90%;
-      color:#777;
-      float: left;
-      margin-left: 1px;
-      }
-
       button.accordion.active:after {
       content: "[\2212]";
       }
