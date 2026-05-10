@@ -107,6 +107,12 @@ img { max-width: 100%; height: auto; }
 
 /* ---------- Primary nav ---------- */
 nav.primary {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  backdrop-filter: saturate(180%) blur(10px);
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   padding: 0.85rem 0;
