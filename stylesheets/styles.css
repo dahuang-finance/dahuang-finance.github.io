@@ -442,11 +442,11 @@ a:hover { text-decoration-color: var(--ink); }
   list-style: none;
   margin: 0 0 2rem;
   padding: 0;
-  max-width: var(--col-text);
+  max-width: 1000px;
 }
 
 .paper {
-  padding: 1.4rem 0;
+  padding: 1rem 0;
   border-top: 1px solid var(--rule-soft);
 }
 
@@ -594,6 +594,7 @@ a:hover { text-decoration-color: var(--ink); }
   font-size: 0.96rem;
   line-height: 1.65;
   color: var(--ink-soft);
+  max-width: var(--col-text);
 }
 
 .abstract-body p { margin: 0; }
