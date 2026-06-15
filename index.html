@@ -61,11 +61,11 @@
       <h2 id="recent">Recent and upcoming</h2>
 
       <div class="recent-filters" role="group" aria-label="Filter recent and upcoming items">
-        <button type="button" class="filter-badge" data-filter="all"          aria-pressed="true">All</button>
+        <button type="button" class="filter-badge" data-filter="all"          aria-pressed="false">All</button>
         <button type="button" class="filter-badge" data-filter="presentation" aria-pressed="true">Presentation</button>
-        <button type="button" class="filter-badge" data-filter="event"        aria-pressed="true">Attend or Organize</button>
-        <button type="button" class="filter-badge" data-filter="publication"  aria-pressed="true">Publication</button>
         <button type="button" class="filter-badge" data-filter="new"          aria-pressed="true">New Research or Update</button>
+        <button type="button" class="filter-badge" data-filter="publication"  aria-pressed="true">Publication</button>
+        <button type="button" class="filter-badge" data-filter="event"        aria-pressed="false">Attend or Organize</button>
       </div>
 
       <ul class="recent-feed">
@@ -193,7 +193,7 @@
       const buttons = document.querySelectorAll('.filter-badge');
       const feed    = document.querySelector('.recent-feed');
       const entries = document.querySelectorAll('.recent-entry[data-category]');
-      const state = { presentation: true, event: true, publication: true, new: true };
+      const state = { presentation: true, new: true, publication: true, event: false };
 
       function render() {
         let visibleCount = 0;
