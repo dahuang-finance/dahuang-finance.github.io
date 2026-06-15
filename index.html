@@ -219,18 +219,14 @@
       buttons.forEach(btn => {
         btn.addEventListener('click', () => {
           const f = btn.dataset.filter;
-          const allActive = Object.values(state).every(Boolean);
 
           if (f === 'all') {
-            // From "all on": clear everything. Otherwise: turn everything on.
+            // "All": from all-on, clear everything; otherwise turn everything on.
+            const allActive = Object.values(state).every(Boolean);
             const next = !allActive;
             for (const k of Object.keys(state)) state[k] = next;
-          } else if (allActive) {
-            // First click from default "all on" state: isolate to clicked one.
-            for (const k of Object.keys(state)) state[k] = false;
-            state[f] = true;
           } else {
-            // Already filtered: standard independent toggle.
+            // Category: independent toggle (deselect X if on, select X if off).
             state[f] = !state[f];
           }
           render();
