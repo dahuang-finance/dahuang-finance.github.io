@@ -474,10 +474,7 @@ a:hover { text-decoration-color: var(--ink); }
 .status-inline {
   font-style: italic;
   color: var(--ink-soft);
-  white-space: nowrap;
 }
-
-.paper-coauthors a + .status-inline { margin-left: 0.35rem; }
 
 .paper-head .authors-inline {
   font-family: var(--serif);
