@@ -471,20 +471,13 @@ a:hover { text-decoration-color: var(--ink); }
   white-space: nowrap;
 }
 
-.paper-head .status-inline {
-  display: inline-block;
-  font-family: var(--sans);
-  font-size: 0.64rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink);
-  background: var(--tint-rr);
-  padding: 0.14rem 0.5rem;
-  border-radius: 2px;
-  border: 1px solid var(--rule-soft);
+.status-inline {
+  font-style: italic;
+  color: var(--ink-soft);
   white-space: nowrap;
 }
+
+.paper-coauthors a + .status-inline { margin-left: 0.35rem; }
 
 .paper-head .authors-inline {
   font-family: var(--serif);
