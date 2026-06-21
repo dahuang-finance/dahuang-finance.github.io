@@ -698,6 +698,125 @@ small, .small {
   padding: 0 0.08em;
 }
 
+/* ---------- Curriculum Vitae ---------- */
+.cv { max-width: 820px; }
+
+.cv-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  margin: 0.2rem 0 1rem;
+}
+.cv-download {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.5rem 0.95rem;
+  transition: background 0.15s, border-color 0.15s;
+}
+.cv-download:hover { background: var(--tint-rr); border-color: var(--ink); }
+.cv-download .arrow { font-weight: 400; margin-left: 0.4em; }
+.cv-updated {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.cv-mail {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+}
+.cv-contact {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0 0 0.5rem;
+}
+
+/* Institution + date blocks (appointment, education, teaching) */
+.cv-item { margin: 0 0 0.85rem; }
+.cv-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.cv-inst { font-family: var(--serif); font-size: 1.02rem; font-weight: 600; color: var(--ink); }
+.cv-date {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.cv-detail {
+  font-family: var(--serif);
+  color: var(--ink-soft);
+  margin: 0.12rem 0 0;
+  padding-left: 1.15em;
+}
+
+/* Numbered entries (publications, working papers) */
+.cv-pub {
+  display: flex;
+  gap: 0.6em;
+  margin: 0 0 0.8rem;
+  line-height: 1.5;
+}
+.cv-num {
+  flex: 0 0 auto;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted-soft);
+  padding-top: 0.12rem;
+}
+.cv-pub-body { font-family: var(--serif); font-size: 1rem; color: var(--ink-soft); }
+.cv-pub-body a { color: var(--ink); }
+.cv-meta { color: var(--muted); }
+.cv-venue { display: block; font-style: italic; color: var(--muted); margin-top: 0.1rem; }
+
+/* Year lists (presentations, awards) */
+.cv-years { margin: 0 0 0.4rem; }
+.cv-years > div { display: flex; gap: 1.1rem; margin: 0 0 0.5rem; }
+.cv-years dt {
+  flex: 0 0 2.7rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  padding-top: 0.1rem;
+}
+.cv-years dd {
+  flex: 1;
+  margin: 0;
+  font-family: var(--serif);
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.cv-note { font-size: 0.85rem; color: var(--muted); margin: 0.35rem 0 0; }
+
+/* Service blocks */
+.cv-svc {
+  font-family: var(--serif);
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0 0 0.3rem;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 820px) {
   html { font-size: 16px; }
