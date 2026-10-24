@@ -304,6 +304,7 @@ a:hover { text-decoration-color: var(--ink); }
 .filter-badge[aria-pressed="true"][data-filter="event"]           { background: #ece6f3; border-color: #c9bdd9; }
 .filter-badge[aria-pressed="true"][data-filter="publication"]     { background: var(--tint-pub); border-color: #c9d4e3; }
 .filter-badge[aria-pressed="true"][data-filter="new"]             { background: #e3ecdf; border-color: #b7c7af; }
+.filter-badge[aria-pressed="true"][data-filter="organize"]        { background: #f3e1dc; border-color: #d9b9ae; }
 
 .recent-entry.is-hidden { display: none; }
 
@@ -423,6 +424,7 @@ a:hover { text-decoration-color: var(--ink); }
 .kind.workshop    { background: #f3ead6; }
 .kind.event       { background: #ece6f3; }
 .kind.new         { background: #e3ecdf; }
+.kind.organize    { background: #f3e1dc; }
 
 @media (max-width: 560px) {
   .recent-feed { height: auto; max-height: 24rem; }
