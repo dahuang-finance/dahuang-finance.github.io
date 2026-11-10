@@ -50,8 +50,7 @@
   --page:    47rem;    /* content width */
   --measure: 39rem;    /* longest line of running prose */
   --gutter:  1.5rem;   /* side padding */
-  --key:     7.25rem;  /* feed, column 1: the date */
-  --tag:     9.25rem;  /* feed, column 2: the venue's short name */
+  --key:     7.25rem;  /* feed: the date column */
   --num:     2.4rem;   /* left column: paper numbers */
 
   /* The five kinds of feed entry. A tag and its filter button have the
@@ -288,47 +287,104 @@ h3 {
 .filter-badge[aria-pressed="true"][data-filter="organize"]     { background: var(--tint-organize);     border-color: var(--edge-organize); }
 .filter-badge[aria-pressed="true"][data-filter="event"]        { background: var(--tint-event);        border-color: var(--edge-event); }
 
-/* Entries: three columns (the date, the tag, the sentence) and a light
-   line between entries. The date and the tag are placed in the entry's
-   left padding, so the sentence needs no wrapper element. */
+/* The list is a box of fixed height that scrolls, so the page stays
+   short while the history grows. A soft fade at its top and bottom
+   edges, and a scrollbar that is always visible, show that it scrolls. */
 .recent-feed {
   list-style: none;
   margin: 0;
   padding: 0;
+  height: 28rem;
+  overflow-y: auto;
+  position: relative;
+}
+
+.recent-feed::before,
+.recent-feed::after {
+  content: "";
+  display: block;
+  position: sticky;
+  left: 0;
+  right: 0;
+  height: 20px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Each fade overlaps the entries by 14px and has 6px of its own, so the
+   first and the last line of text are clear of it at either end. */
+.recent-feed::before {
+  top: 0;
+  margin-bottom: -14px;
+  background: linear-gradient(to bottom, var(--paper), rgba(255, 255, 255, 0));
+}
+
+.recent-feed::after {
+  bottom: 0;
+  margin-top: -14px;
+  background: linear-gradient(to top, var(--paper), rgba(255, 255, 255, 0));
+}
+
+/* Chrome and Safari: a thin scrollbar that does not hide itself. */
+.recent-feed::-webkit-scrollbar { width: 9px; }
+
+.recent-feed::-webkit-scrollbar-track {
+  background: #eef0f2;
+  border-radius: 5px;
+}
+
+.recent-feed::-webkit-scrollbar-thumb {
+  background: #b4b9c1;
+  border-radius: 5px;
+  border: 2px solid #eef0f2;
+  background-clip: padding-box;
+}
+
+.recent-feed::-webkit-scrollbar-thumb:hover {
+  background: #8b9099;
+  background-clip: padding-box;
+}
+
+/* Firefox has no such pseudo-elements; it takes the standard properties.
+   (Giving them to Chrome as well would switch its rules above off.) */
+@supports not selector(::-webkit-scrollbar) {
+  .recent-feed {
+    scrollbar-width: thin;
+    scrollbar-color: #b4b9c1 #eef0f2;
+  }
+}
+
+/* Entries: the date in a left column, then the tag and the sentence
+   together, and a light line between entries. The date is placed in the
+   entry's left padding, so the sentence needs no wrapper element. */
+.recent-entry {
+  position: relative;
+  padding: 0.62rem 1rem 0.62rem var(--key);
   border-bottom: 1px solid var(--rule-soft);
 }
 
-.recent-entry {
-  position: relative;
-  padding: 0.62rem 0 0.62rem calc(var(--key) + var(--tag));
-  border-top: 1px solid var(--rule-soft);
-}
-
-.recent-entry .when,
-.kind {
-  position: absolute;
-  white-space: nowrap;
-}
-
 .recent-entry .when {
+  position: absolute;
   left: 0;
   top: 0.62rem;
   color: var(--ink-2);
   font-variant-numeric: lining-nums tabular-nums;
+  white-space: nowrap;
 }
 
-/* The tag: the venue's short name on the tint of its kind. */
+/* The tag: "Conference · AFA" on the tint of its kind, at the start of
+   the sentence. (A tag column was tried on 2026-11-09. With the full tag
+   text, the column left the sentences too narrow, and a tag wrapped to
+   two lines had a box as wide as the column.) */
 .kind {
-  left: var(--key);
-  top: 0.8rem;
-  max-width: calc(var(--tag) - 1rem);
+  display: inline-block;
+  margin-right: 0.55rem;
   padding: 0 0.45rem;
   border-radius: 2px;
   font-size: 0.84rem;
   line-height: 1.5;
   color: var(--ink);
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .kind.conference,
@@ -339,41 +395,19 @@ h3 {
 .kind.organize  { background: var(--tint-organize); }
 .kind.event     { background: var(--tint-event); }
 
-.recent-entry.is-hidden,
-.recent-entry.is-older { display: none; }
+.recent-entry.is-hidden { display: none; }
 
 .recent-empty {
   display: none;
-  padding: 0.62rem 0 0.62rem calc(var(--key) + var(--tag));
-  border-top: 1px solid var(--rule-soft);
+  padding: 0.62rem 1rem 0.62rem var(--key);
   color: var(--ink-2);
   font-style: italic;
 }
 
 .recent-feed.is-empty .recent-empty { display: block; }
 
-/* "Show earlier entries" */
-.feed-more {
-  display: inline-block;
-  margin: 0.7rem 0 0 calc(var(--key) + var(--tag));
-  padding: 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  color: var(--link);
-  cursor: pointer;
-}
-
-.feed-more:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
-}
-
-.feed-more[hidden] { display: none; }
-
 .feed-note {
-  margin: 1.6rem 0 0;
+  margin: 1.1rem 0 0;
   font-size: 0.92rem;
   color: var(--ink-2);
 }
@@ -526,10 +560,12 @@ small, .small {
 
 .muted { color: var(--ink-2); }
 
-/* RETIRED, NOT IN USE: the yellow highlighter. A few feed entries still
-   wrap a phrase in .mark; it now reads as ordinary text. To bring the
-   highlight back: .mark { background: #fff3b0; } */
-.mark { background: none; }
+/* The yellow highlighter, for a phrase Da wants to stand out in the
+   feed. At most one or two in an entry. */
+.mark {
+  background: linear-gradient(transparent 60%, #fff39a 60%);
+  padding: 0 0.08em;
+}
 
 /* ---------- Curriculum vitae ---------- */
 .cv h1.page-title { margin-bottom: 1rem; }
@@ -676,24 +712,21 @@ small, .small {
     width: 9rem;
   }
 
-  /* The date and the tag go on one line above the sentence. */
-  .recent-entry,
-  .recent-empty { padding: 2.25rem 0 0.65rem; }
+  /* The box is as tall as its entries, up to a limit. The date is on
+     its own line above the tag and the sentence. */
+  .recent-feed {
+    height: auto;
+    max-height: 26rem;
+  }
 
-  .recent-empty { padding-top: 0.65rem; }
+  .recent-entry { padding: 2.1rem 0.75rem 0.65rem 0; }
+
+  .recent-empty { padding: 0.65rem 0.75rem 0.65rem 0; }
 
   .recent-entry .when {
-    top: 0.6rem;
+    top: 0.55rem;
     font-size: 0.92rem;
   }
-
-  .kind {
-    left: 6.6rem;
-    top: 0.68rem;
-    max-width: calc(100% - 6.6rem);
-  }
-
-  .feed-more { margin-left: 0; }
 
   /* The "Updated" month goes under the title. */
   .paper-head { grid-template-columns: var(--num) minmax(0, 1fr); }
@@ -708,8 +741,9 @@ small, .small {
 @media print {
   html { font-size: 11pt; }
   .page, .site-footer { max-width: none; padding-left: 0; padding-right: 0; }
-  nav.primary, .recent-filters, .feed-more, .site-footer { display: none; }
-  .recent-entry.is-older { display: block; }
+  nav.primary, .recent-filters, .site-footer { display: none; }
+  .recent-feed { height: auto; max-height: none; overflow: visible; }
+  .recent-feed::before, .recent-feed::after { display: none; }
   .paper details > *:not(summary) { display: block !important; }
   .paper summary { display: none; }
   a { color: inherit; }
