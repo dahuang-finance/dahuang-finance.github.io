@@ -24,28 +24,30 @@
   <meta property="og:image:alt" content="Da Huang — Assistant Professor of Finance, Northeastern University">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="preload" href="fonts/xcharter-roman.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/xcharter-bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="stylesheets/styles.css?v=2">
 </head>
 <body>
   <main class="page">
 
-    <header class="brand">
-      <p class="name"><a href="./">Da Huang</a></p>
-      <p class="role">Assistant Professor of Finance · Northeastern University</p>
+    <header class="site-header">
+      <div class="brand">
+        <p class="name"><a href="./">Da Huang</a></p>
+        <p class="role">Assistant Professor of Finance, Northeastern University</p>
+      </div>
+      <nav class="primary" aria-label="Primary">
+        <ul>
+          <li><a href="./">Home</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="https://canaireview.com" target="_blank" rel="noopener">Can AI Review?</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <nav class="primary" aria-label="Primary">
-      <ul>
-        <li><a href="./">Home</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="teaching.html">Teaching</a></li>
-        <li><a href="cv.html">CV</a></li>
-        <li><a href="https://canaireview.com" target="_blank" rel="noopener">Can AI Review?</a></li>
-      </ul>
-    </nav>
-
-    <p class="page-eyebrow">Replication Code</p>
-    <h1 class="page-title">Coming soon</h1>
+    <h1 class="page-title">Replication Code</h1>
 
     <div class="prose">
       <p>Replication packages for selected papers will be posted here. In the meantime, please reach out by email for code or data.</p>
@@ -55,7 +57,7 @@
 
   <footer class="site-footer">
     <span>&copy; Da Huang</span>
-    <span>Northeastern University &middot; D&rsquo;Amore-McKim School of Business</span>
+    <span>D&rsquo;Amore-McKim School of Business, Northeastern University</span>
   </footer>
 </body>
 </html>

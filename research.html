@@ -24,28 +24,30 @@
   <meta property="og:image:alt" content="Da Huang — Assistant Professor of Finance, Northeastern University">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="preload" href="fonts/xcharter-roman.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/xcharter-bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="stylesheets/styles.css?v=2">
 </head>
 <body>
   <main class="page">
 
-    <header class="brand">
-      <p class="name"><a href="./">Da Huang</a></p>
-      <p class="role">Assistant Professor of Finance · Northeastern University</p>
+    <header class="site-header">
+      <div class="brand">
+        <p class="name"><a href="./">Da Huang</a></p>
+        <p class="role">Assistant Professor of Finance, Northeastern University</p>
+      </div>
+      <nav class="primary" aria-label="Primary">
+        <ul>
+          <li><a href="./">Home</a></li>
+          <li><a href="research.html" aria-current="page">Research</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="https://canaireview.com" target="_blank" rel="noopener">Can AI Review?</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <nav class="primary" aria-label="Primary">
-      <ul>
-        <li><a href="./">Home</a></li>
-        <li><a href="research.html" aria-current="page">Research</a></li>
-        <li><a href="teaching.html">Teaching</a></li>
-        <li><a href="cv.html">CV</a></li>
-        <li><a href="https://canaireview.com" target="_blank" rel="noopener">Can AI Review?</a></li>
-      </ul>
-    </nav>
-
-    <p class="page-eyebrow">Research</p>
-    <h1 class="page-title">Working papers and publications</h1>
+    <h1 class="page-title">Research</h1>
 
     <!-- ===================== Working Papers ===================== -->
     <h2 id="working-papers">Working Papers</h2>
@@ -174,7 +176,7 @@
           <span class="paper-num">[9]</span>
           <h3 class="paper-title">Tax Revenue Risk, Municipal Bond Yield, and Public Investments</h3>
           <span class="when-inline">Updated September 2026</span>
-          <span class="muted small" style="font-family:var(--serif); text-transform:none; letter-spacing:normal; font-weight:400;">(available upon request)</span>
+          <span class="paper-note">(available upon request)</span>
         </div>
         <div class="paper-body">
           <p class="paper-coauthors"><span class="with">with</span> <a href="https://www.vasudhanair.com/" target="_blank" rel="noopener">Vasudha Nair</a> and <a href="https://www.nathanseegert.com/" target="_blank" rel="noopener">Nathan Seegert</a></p>
@@ -246,7 +248,7 @@
 
   <footer class="site-footer">
     <span>&copy; Da Huang</span>
-    <span>Northeastern University &middot; D&rsquo;Amore-McKim School of Business</span>
+    <span>D&rsquo;Amore-McKim School of Business, Northeastern University</span>
   </footer>
 </body>
 </html>

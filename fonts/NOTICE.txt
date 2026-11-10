@@ -1,0 +1,29 @@
+Fonts in this folder
+====================
+
+  xcharter-roman.woff2
+  xcharter-italic.woff2
+  xcharter-bold.woff2
+  xcharter-bolditalic.woff2
+
+These files are subsets (Latin characters only), in WOFF2 format, of the
+XCharter OpenType fonts, version 1.221, by Michael Sharpe. XCharter is an
+extension of Bitstream Charter. The files were made with fontTools from the
+XCharter package on CTAN (https://ctan.org/pkg/xcharter). The outlines are
+unchanged, and each file has its source font's copyright notice in its
+name table.
+
+Copyright, as recorded in the fonts:
+
+  Copyright 1990 as an unpublished work by Bitstream Inc.  All rights reserved.
+  Copyright (c) 2009, 2010, 2011, 2012 Andrey V. Panov
+  Copyright (c) 2013--2023 Michael Sharpe, based on Bitstream Charter.
+
+License. The README of the XCharter package states that the fonts are
+free fonts under the same terms as the original from Bitstream. The
+Bitstream notice grants permission to use, copy, modify, and redistribute
+the fonts for any purpose, provided that the notice stays with every copy.
+The full notice is in that README:
+https://ctan.org/tex-archive/fonts/xcharter
+
+BITSTREAM CHARTER is a registered trademark of Bitstream Inc.
